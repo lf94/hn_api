@@ -3,7 +3,7 @@
 use serde::Deserialize;
 
 /// An API item, for example a story or a comment.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 #[serde(tag = "type")]
 #[serde(rename_all = "lowercase")]
 pub enum Item {
@@ -54,7 +54,7 @@ impl Item {
 }
 
 /// A story.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Story {
     /// The item's unique id.
     pub id: u32,
@@ -77,7 +77,7 @@ pub struct Story {
 }
 
 /// A comment.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Comment {
     /// The item's unique id.
     pub id: u32,
@@ -94,7 +94,7 @@ pub struct Comment {
 }
 
 /// A job.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Job {
     /// The item's unique id.
     pub id: u32,
@@ -111,7 +111,7 @@ pub struct Job {
 }
 
 /// A poll.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Poll {
     /// The item's unique id.
     pub id: u32,
@@ -134,7 +134,7 @@ pub struct Poll {
 }
 
 /// A poll option belonging to a poll.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Pollopt {
     /// The item's unique id.
     pub id: u32,
@@ -151,7 +151,7 @@ pub struct Pollopt {
 }
 
 /// A user profile.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct User {
     /// The user's unique username. Case-sensitive.
     pub id: String,
@@ -169,7 +169,7 @@ pub struct User {
 }
 
 /// A list of recently updated items and users.
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize)]
 pub struct Updates {
     /// A list of recently changed items.
     pub items: Vec<u32>,
